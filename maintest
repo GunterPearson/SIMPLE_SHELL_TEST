@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# test error when file doesnt exist
+echo "TEST 1: ERROR OUTPUT"
+echo -e "\e[92mEXPECTED:\e[0m"
+echo "qwerty" | sh
+echo $?
+echo -e "\e[92mGOT:\e[0m"
+echo "qwerty" | ../sh
+echo $?
+echo "================="
+
+echo "TEST 2: SPACES"
+echo -e "\e[92mEXPECTED:\e[0m"
+echo "                                                                                      " | sh
+echo $?
+echo -e "\e[92mGOT:\e[0m"
+echo "                                                                                      " | ../sh
+echo $?
+echo "================="
+
+echo "TEST 3: ./pwdtest"
+echo -e "\e[92mEXPECTED:\e[0m"
+cat ./pwdtest | sh
+echo $?
+echo -e "\e[92mGOT:\e[0m"
+cat ./pwdtest | ../sh
+echo $?
+echo "================="
+
+echo "TEST 4: SIMPLE LS"
+echo -e "\e[92mEXPECTED:\e[0m"
+echo "/bin/ls" | sh
+echo $?
+echo -e "\e[92mGOT:\e[0m"
+echo "/bin/ls" | ../sh
+echo $?
+echo "================="
+
+echo "TEST 5: ./ls_times"
+echo -e "\e[92mEXPECTED:\e[0m"
+cat ./ls_times | sh
+echo $?
+echo -e "\e[92mGOT:\e[0m"
+cat ./ls_times | ../sh
+echo $?
+echo "================="
+
+echo "TEST 6: ./ls_spaces"
+echo -e "\e[92mEXPECTED:\e[0m"
+cat ./ls_spaces | sh
+echo $?
+echo -e "\e[92mGOT:\e[0m"
+cat ./ls_spaces | ../sh
+echo $?
+echo "================="
+
+echo "TEST 7: BAD LS COMMAND"
+echo -e "\e[92mEXPECTED:\e[0m"
+echo "ls -y" | sh
+echo $?
+echo -e "\e[92mGOT:\e[0m"
+echo "ls -y" | ../sh
+echo $?
+echo "================="
+
+echo "TEST 8: ./ls_morespace"
+echo -e "\e[92mEXPECTED:\e[0m"
+cat ./ls_morespace | sh
+echo $?
+echo -e "\e[92mGOT:\e[0m"
+cat ./ls_morespace | ../sh
+echo $?
+echo "================="
+
+echo "TEST 9: ./bad_command"
+echo -e "\e[92mEXPECTED:\e[0m"
+cat ./bad_command | sh
+echo $?
+echo -e "\e[92mGOT:\e[0m"
+cat ./bad_command | ../sh
+echo $?
+echo "================="
